@@ -1,0 +1,10 @@
+// Just to add fs module
+
+const fs = require('fs');
+
+// create a new File name notes.txt
+
+fs.writeFileSync('notes.txt', 'My Name is Fahim Hossen');
+
+
+fs.appendFileSync('notes.txt', ' I am a student of AIUB' );
