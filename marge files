@@ -1,0 +1,20 @@
+**********************
+*******app.js*********
+**********************
+
+
+const name = require('./utils.js')
+console.log(name);
+
+
+**********************
+*******utils.js*********
+**********************
+
+const name = 'Fahim';
+module.exports = name;
+
+
+
+OUTPUT -> 'Fahim' If you run node app.js
+
