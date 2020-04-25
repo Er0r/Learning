@@ -1,0 +1,9 @@
+I used to create a new file because I am in love with this package. It will help the js file running continuously if you do any change in your 
+js file.
+
+Installing Process :
+npm install nodemon@2.0.3 -g
+
+Comment: nodemon app.js
+
+And see the charm
