@@ -4,3 +4,10 @@ and Find out the packages and then install it.
 
 // validator 
 // chalk
+
+Let's Get some Examples: 
+
+Firstly write some comments on vs code terminal : npm install (packagename)@(version)
+
+const validator = require('validator');
+console.log(validator.isURL('@gmail.com'));
