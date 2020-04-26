@@ -1,0 +1,21 @@
+const command = process.argv[2];
+
+console.log(process.argv);
+
+if(command === 'add') {
+    console.log('Adding note!');
+} else if(command === 'remove'){
+    console.log('Remove Note!');
+}
+
+comments -> node app.js add --title="This is my Title"
+
+output: 
+
+[
+  'D:\\node.exe',
+  'F:\\Learning\\Node-Course\\notes-app\\app.js',
+  'add',
+  '--title=This is my Title'
+]
+Adding note!
