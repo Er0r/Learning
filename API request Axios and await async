@@ -1,0 +1,21 @@
+const axios = require("axios");
+
+// JUST A DEMO
+
+const key = 'd00b941fcd1e41a2d7b0e9e868563e18';
+const city = 'Dhaka';
+const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`;
+
+const getData = async (url) => {
+    try {
+        const response = await axios.get(url);
+        
+        const data = response.data;
+
+        console.log(data.weather);
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+getData(url);
