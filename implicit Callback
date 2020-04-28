@@ -1,0 +1,14 @@
+const add = ((x,y,callback) => {
+    setTimeout(() => {
+        const res = x+y;
+        
+        callback(res);
+        
+    },2000)
+});
+
+
+
+add(1, 4, (sum) => {
+    console.log(sum);
+})
