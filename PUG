@@ -1,0 +1,20 @@
+under the views: 
+index.pug
+html
+    head
+        title= title
+    body
+        h1= message
+        
+        
+        
+        
+        index.js
+        
+        
+      app.get('/', (req, res) => {
+    res.render('index',{ 
+        title:'My Express App',
+        message: 'Hello!'
+    })
+});
