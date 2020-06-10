@@ -1,0 +1,4 @@
+GET http://localhost:3000/api/posts
+Content-Type: application/json
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWUwODI3NTg3ZDAwOTEwZDBjMWQzNjIiLCJpYXQiOjE1OTE3NzY3MTd9.3mx7ayRBJe0XvytEZPSFCkYPNKAJ_9yUWm0KgEFNunA
+
