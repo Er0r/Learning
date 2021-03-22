@@ -1,0 +1,42 @@
+let express = require( 'express' );
+let app = express();
+let path = require( 'path' );
+let server = require( 'http' ).Server( app );
+let bodyParser = require('body-parser');
+
+app.use( '/assets', express.static( path.join( __dirname, 'assets' ) ) );
+app.use( '/views', express.static( path.join( __dirname, 'views' ) ) );
+app.set('view engine', 'ejs') 
+app.use(bodyParser.json());
+
+
+var books = ['' , 'J.K Rawling'];
+
+var requestTime = function (req, res, next) {
+    req.requestTime = Date.now()
+    next()
+}
+app.use(requestTime)
+
+app.get('/', (req,res) => {
+    console.log(`server is requested at ${req.requestTime}`);
+    res.render('index', {books: books});
+})
+
+app.post('/send', async (req, res ) => {
+    // console.log(req.body);
+    const {book1, book2} = req.body;
+    if (book1 !== '' && book2 !== '') {
+        res.json({status: "ok"});
+    }
+    else {
+        return res.json({status: 'error', error: 'Books arent here!'})
+    }
+
+})
+
+app.get('/send',(req,res) => {
+    res.render('index2', {books: books});
+})
+
+server.listen( 3000, () => console.log('SERVER IS LISTENING') );
