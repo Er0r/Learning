@@ -24,6 +24,14 @@ data.read('test', 'newFile', (err, result) => {
   console.log(err,result);
 })
 
+data.update('test', 'newFile', {name: 'England', language: 'ENGLISH'}, (err) => {
+  console.log('err');
+} )
+
+data.delete('test', 'newFile', (err) => {
+  console.log(err);
+} )
+
 let content = new Array();
 
 app.post('/', (req,res) => {
