@@ -1,0 +1,46 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
+const app = express();
+const port = process.env.PORT || 5000;
+
+const environment = require('./helpers/environments');
+const data = require('./lib/data');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
+
+app.use("/assets",express.static(__dirname + '/assets'));
+app.set('views', path.join(__dirname, 'views')) 
+app.set('view engine', 'ejs') 
+
+data.create('test', 'newFile', {name: 'Bangladesh', language: 'Bangla'}, (err) => {
+  console.log(`error Was `, err);
+});
+
+data.read('test', 'newFile', (err, result) => {
+  console.log(err,result);
+})
+
+let content = new Array();
+
+app.post('/', (req,res) => {
+  const {inputArray} = req.body;
+  content.push(inputArray);
+  return res.json({status: "ok"})
+})
+
+
+app.get('/content', (req,res) => {
+  res.render('page2', {content: content});
+})
+
+app.get('/', (req, res) => {
+  res.render('page1');
+});
+
+
+
+app.listen(environment.port, () => console.log(`Listening on port ${environment.port}`));
